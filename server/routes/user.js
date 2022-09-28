@@ -1,6 +1,6 @@
 const express = require("express");
 
-const recordRoutes = express.Router();
+const userRoutes = express.Router();
 
 //  This will help connect to the database
 const dbo = require("../db/conn");
