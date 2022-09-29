@@ -11,7 +11,11 @@ const dbo = require("../db/conn");
 // This help convert the id from string to ObjectId for the _id.
 const ObjectId = require("mongodb").ObjectId;
 
-// This section will help you get a list of all the users.
+////////////////////////////////////////
+//                                    //
+//    GET a list of all the users.    //
+//                                    //
+////////////////////////////////////////
 userRoutes.route("/user").get(function (req, res) {
   let db_connect = dbo.getDb("employees");
   db_connect
@@ -23,7 +27,11 @@ userRoutes.route("/user").get(function (req, res) {
     });
 });
 
-// This section will help you get a single user by id
+///////////////////////////////////
+//                               //
+//    GET a single user by id    //
+//                               //
+///////////////////////////////////
 userRoutes.route("/user/:id").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
@@ -33,14 +41,22 @@ userRoutes.route("/user/:id").get(function (req, res) {
   });
 });
 
-// This section will help you create a new user.
+////////////////////////////////////
+//                                //
+//    CREATE [PUT] a new user.    //
+//                                //
+////////////////////////////////////
 userRoutes.route("/user/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
+    email: req.body.email,
+    password: req.body.password,
     age: req.body.age,
+    gender: req.body.gender,
     location: req.body.location,
+    about: req.body.about,
   };
   db_connect.collection("users").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -48,7 +64,11 @@ userRoutes.route("/user/add").post(function (req, response) {
   });
 });
 
-// This section will help you update a user by id.
+///////////////////////////////////////
+//                                   //
+//    UPDATE [POST] a user by id.    //
+//                                   //
+///////////////////////////////////////
 userRoutes.route("/update/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
@@ -69,7 +89,11 @@ userRoutes.route("/update/:id").post(function (req, response) {
     });
 });
 
-// This section will help you delete a user
+/////////////////////////
+//                     //
+//    DELETE a user    //
+//                     //
+/////////////////////////
 userRoutes.route("/:id").delete((req, response) => {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
