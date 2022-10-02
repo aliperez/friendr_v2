@@ -14,18 +14,30 @@ export default function Create() {
   });
   const navigate = useNavigate();
 
-  // These methods will update the state properties.
+  ///////////////////////////////////////////////////////////
+  //                                                       //
+  //    These methods will update the state properties.    //
+  //                                                       //
+  ///////////////////////////////////////////////////////////
   function updateForm(value) {
     return setForm(prev => {
       return { ...prev, ...value };
     });
   }
 
-  // This function will handle the submission.
+  /////////////////////////////////////////////////////
+  //                                                 //
+  //    This function will handle the submission.    //
+  //                                                 //
+  /////////////////////////////////////////////////////
   async function onSubmit(e) {
     e.preventDefault();
 
-    // When a post request is sent to the create url, we'll add a new user to the database.
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                                                                            //
+    //    When a post request is sent to the create url, we'll add a new user to the database.    //
+    //                                                                                            //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
     const newPerson = { ...form };
 
     await fetch("http://localhost:5001/user/add", {
@@ -52,7 +64,11 @@ export default function Create() {
     navigate("/");
   }
 
-  // This following section will display the form that takes the input from the user.
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //                                                                                        //
+  //    This following section will display the form that takes the input from the user.    //
+  //                                                                                        //
+  ////////////////////////////////////////////////////////////////////////////////////////////
   return (
     <div>
       <h3>Create New User</h3>
