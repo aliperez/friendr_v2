@@ -11,7 +11,7 @@ const User = props => (
     <td>{props.user.about}</td>
     <td>
       <Link className="btn btn-link" to={`/edit/${props.user._id}`}>
-        Edit
+        Edit Profile
       </Link>{" "}
       |
       <button
@@ -20,7 +20,7 @@ const User = props => (
           props.deleteUser(props.user._id);
         }}
       >
-        Delete
+        Delete Profile
       </button>
     </td>
   </tr>
