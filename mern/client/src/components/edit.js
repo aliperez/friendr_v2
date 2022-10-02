@@ -3,10 +3,15 @@ import { useParams, useNavigate } from "react-router";
 
 export default function Edit() {
   const [form, setForm] = useState({
-    name: "",
-    position: "",
-    level: "",
-    records: [],
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    age: "",
+    gender: "",
+    city: "",
+    about: "",
+    users: [],
   });
   const params = useParams();
   const navigate = useNavigate();
@@ -140,7 +145,7 @@ export default function Edit() {
         <div className="form-group">
           <input
             type="submit"
-            value="Update Record"
+            value="Update User"
             className="btn btn-primary"
           />
         </div>

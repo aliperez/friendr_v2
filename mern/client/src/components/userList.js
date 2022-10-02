@@ -27,7 +27,7 @@ const User = props => (
 );
 
 export default function UserList() {
-  const [user, setUser] = useState([]);
+  const [users, setUser] = useState([]);
 
   // This method fetches the user from the database.
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function UserList() {
     });
 
     const newUsers = users.filter(el => el._id !== id);
-    setUsers(newUsers);
+    setUser(newUsers);
   }
 
   // This method will map out the users on the table
