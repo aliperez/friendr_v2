@@ -15,7 +15,7 @@ export default function Edit() {
     async function fetchData() {
       const id = params.id.toString();
       const response = await fetch(
-        `http://localhost:5001/record/${params.id.toString()}`
+        `http://localhost:5001/user/${params.id.toString()}`
       );
 
       if (!response.ok) {
@@ -24,14 +24,14 @@ export default function Edit() {
         return;
       }
 
-      const record = await response.json();
-      if (!record) {
-        window.alert(`Record with id ${id} not found`);
+      const user = await response.json();
+      if (!user) {
+        window.alert(`User with id ${id} not found`);
         navigate("/");
         return;
       }
 
-      setForm(record);
+      setForm(user);
     }
 
     fetchData();
@@ -69,7 +69,7 @@ export default function Edit() {
   // This following section will display the form that takes input from the user to update the data.
   return (
     <div>
-      <h3>Update Record</h3>
+      <h3>Update User</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name: </label>
