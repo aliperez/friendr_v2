@@ -131,8 +131,8 @@ export default function Create() {
               name="genderOptions"
               id="genderMale"
               value="Male"
-              checked={form.level === "Male"}
-              onChange={e => updateForm({ level: e.target.value })}
+              checked={form.gender === "Male"}
+              onChange={e => updateForm({ gender: e.target.value })}
             />
             <label htmlFor="genderMale" className="form-check-label">
               Male
@@ -145,8 +145,8 @@ export default function Create() {
               name="genderOptions"
               id="genderFemale"
               value="Female"
-              checked={form.level === "Female"}
-              onChange={e => updateForm({ level: e.target.value })}
+              checked={form.gender === "Female"}
+              onChange={e => updateForm({ gender: e.target.value })}
             />
             <label htmlFor="genderFemale" className="form-check-label">
               Female
@@ -159,8 +159,8 @@ export default function Create() {
               name="genderOptions"
               id="genderOther"
               value="Other"
-              checked={form.level === "Other"}
-              onChange={e => updateForm({ level: e.target.value })}
+              checked={form.gender === "Other"}
+              onChange={e => updateForm({ gender: e.target.value })}
             />
             <label htmlFor="genderOther" className="form-check-label">
               Other
