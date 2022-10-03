@@ -91,7 +91,7 @@ export default function UserList() {
   ////////////////////////////////////////////////////////////////////////////////////////
   return (
     <div>
-      <h3>User List</h3>
+      <h3>This will be the Profile Page - after you sign in </h3>
       <table className="table table-striped" style={{ marginTop: 20 }}>
         <thead>
           <tr>
