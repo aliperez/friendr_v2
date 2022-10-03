@@ -9,6 +9,7 @@ import UserList from "./components/userList";
 import Edit from "./components/edit";
 import Create from "./components/create";
 import Login from "./components/login";
+import Profile from "./components/profile";
 
 const App = () => {
   return (
