@@ -190,7 +190,7 @@ export default function Create() {
         <div className="form-group">
           <input
             type="submit"
-            value="Create person"
+            value="Create Profile"
             className="btn btn-primary"
           />
         </div>

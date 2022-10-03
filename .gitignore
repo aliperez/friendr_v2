@@ -11,7 +11,7 @@ node_modules
 /coverage
 
 # production
-/buil
+
 /build
 
 # misc
@@ -28,3 +28,5 @@ yarn-debug.log*
 yarn-error.log*
 
 .DS_Store
+
+.gitignore
