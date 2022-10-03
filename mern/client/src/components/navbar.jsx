@@ -25,8 +25,8 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink className="navbar-brand" to="/">
           <img
-            style={{ width: 25 + "%" }}
-            src="../assets/images/logo.png"
+            style={{ width: 75 + "%" }}
+            src="../../../../assets/images/logo.png"
           ></img>
         </NavLink>
         <button
