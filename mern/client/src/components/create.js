@@ -166,7 +166,7 @@ export default function Create() {
               Other
             </label>
           </div>
-        
+        </div>
         <div className="form-group">
           <label htmlFor="city">City</label>
           <input
