@@ -100,7 +100,7 @@ export default function UserList() {
             <th>Age</th>
             <th>Gender</th>
             <th>City</th>
-            <th>About Me</th>
+            <th>About M</th>
           </tr>
         </thead>
         <tbody>{userList()}</tbody>
