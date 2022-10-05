@@ -31,7 +31,7 @@ export default function UserList() {
 
   ///////////////////////////////////////////////////////////
   //                                                       //
-  //    This method fetches the user from the database.    //
+  //    This method fetches the users from the database.    //
   //                                                       //
   ///////////////////////////////////////////////////////////
   useEffect(() => {
@@ -91,7 +91,7 @@ export default function UserList() {
   ////////////////////////////////////////////////////////////////////////////////////////
   return (
     <div>
-      <h3>User List</h3>
+      <h3>This will be the Profile Page - after you sign in </h3>
       <table className="table table-striped" style={{ marginTop: 20 }}>
         <thead>
           <tr>
@@ -100,7 +100,7 @@ export default function UserList() {
             <th>Age</th>
             <th>Gender</th>
             <th>City</th>
-            <th>About</th>
+            <th>About Me</th>
           </tr>
         </thead>
         <tbody>{userList()}</tbody>

@@ -42,7 +42,7 @@ userRoutes.route("/user/add").post(function (req, response) {
     email: req.body.email,
     password: req.body.password,
     age: req.body.age,
-    gender: req.body.gender,
+    gender: req.body.genderOptions,
     city: req.body.city,
     about: req.body.about,
   };

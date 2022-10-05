@@ -61,7 +61,7 @@ export default function Create() {
       city: "",
       about: "",
     });
-    navigate("/");
+    navigate("/profile");
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////////

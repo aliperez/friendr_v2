@@ -11,7 +11,8 @@ export default function Edit() {
     gender: "",
     city: "",
     about: "",
-    users: [],
+    friends: [],
+    hobbies: [],
   });
   const params = useParams();
   const navigate = useNavigate();

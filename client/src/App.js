@@ -9,16 +9,19 @@ import UserList from "./components/userList";
 import Edit from "./components/edit";
 import Create from "./components/create";
 import Login from "./components/login";
+import Profile from "./components/profile";
+import Home from "./components/home";
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<UserList />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/edit/:id" element={<Edit />} />
         <Route path="/create" element={<Create />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<UserList />} />
       </Routes>
     </div>
   );
