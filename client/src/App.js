@@ -13,6 +13,10 @@ import Profile from "./components/profile";
 import Home from "./components/home";
 
 const App = () => {
+  // const bcrypt = require("bcrypt");
+  // const saltRounds = 10;
+  // const plainTextPassword1 = "DFGh5546*%^__90";
+
   return (
     <div>
       <Navbar />
