@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
-import Auth from "../utils/auth";
+// import Auth from "../utils/auth";
 
 export default function Create() {
   const [form, setForm] = useState({
@@ -22,13 +22,28 @@ export default function Create() {
     });
   }
 
-  /////////////////////////////////////////////////////
-  //                                                 //
-  //    This function will handle the submission.    //
-  //                                                 //
-  /////////////////////////////////////////////////////
   async function onSubmit(e) {
     e.preventDefault();
+    const verifyPassword = { ...form };
+
+    await fetch("http://localhost:5001/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(verifyPassword),
+    }).catch(error => {
+      window.alert(error);
+      return;
+    });
+
+    setForm({
+      email: "",
+      password: "",
+    });
+
+    console.log(verifyPassword);
+    // navigate("/profile");
   }
 
   return (

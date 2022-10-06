@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcrypt");
 
 // userRoutes is an instance of the express router.
 // We use it to define our routes.
@@ -34,22 +35,46 @@ userRoutes.route("/user/:id").get(function (req, res) {
 });
 
 // This section will help you create a new user.
-userRoutes.route("/user/add").post(function (req, response) {
+
+userRoutes.route("/user/add").post(async (req, response) => {
+  try {
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    let db_connect = dbo.getDb();
+    let myobj = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      password: hashedPassword,
+      age: req.body.age,
+      gender: req.body.genderOptions,
+      city: req.body.city,
+      about: req.body.about,
+    };
+    db_connect.collection("users").insertOne(myobj, function (err, res) {
+      if (err) throw err;
+      response.json(res);
+    });
+  } catch {
+    res.status(500).send();
+  }
+});
+
+userRoutes.route("/user/login").post(async (req, res) => {
+  console.log("line 63");
   let db_connect = dbo.getDb();
-  let myobj = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password,
-    age: req.body.age,
-    gender: req.body.genderOptions,
-    city: req.body.city,
-    about: req.body.about,
-  };
-  db_connect.collection("users").insertOne(myobj, function (err, res) {
-    if (err) throw err;
-    response.json(res);
-  });
+  const user = db_connect
+    .collection("users")
+    .find(user => (user.email = req.body.email));
+  if (user == null) {
+    // console.log("we here bro");
+    return res.status(404).send("no user found");
+  }
+  try {
+    bcrypt.compare(req.body.password, user.password);
+  } catch {
+    res.status(500).send();
+  }
 });
 
 // This section will help you update a user by id.
