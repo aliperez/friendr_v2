@@ -11,10 +11,6 @@ export default function Create() {
 
   const navigate = useNavigate();
 
-  // const Login = (props) => {
-  //   const [formState, setFormState] = useState({ email: '', password: '' });
-  //   const [login, { error, data }] = useMutation(LOGIN_USER);
-
   ///////////////////////////////////////////////////////////
   //                                                       //
   //    These methods will update the state properties.    //
