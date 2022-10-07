@@ -23,7 +23,7 @@ export default function Login() {
     const verifyPassword = { ...form };
 
     await fetch("http://localhost:5001/login", {
-      metho: "PUT",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
