@@ -66,9 +66,10 @@ userRoutes.route("/user/add").post(async (req, response) => {
 //
 // Verify password by email.
 //
-userRoutes.route("/login").get(function (req, res) {
+userRoutes.route("/").post(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { email: ObjectId(req.params.email) };
+  console.log(req.params.email);
   db_connect.collection("users").findOne(myquery, function (err, result) {
     if (err) throw err;
     res.json(result);

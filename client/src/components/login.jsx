@@ -22,7 +22,7 @@ export default function Login() {
     e.preventDefault();
     const verifyPassword = { ...form };
 
-    await fetch("http://localhost:5001/login", {
+    await fetch("http://localhost:5001/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,6 +39,7 @@ export default function Login() {
     });
 
     console.log(verifyPassword);
+    console.log(verifyPassword.email);
     // navigate("/profile");
   }
 
