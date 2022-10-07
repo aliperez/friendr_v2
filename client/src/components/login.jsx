@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 // import Auth from "../utils/auth";
 
-export default function Create() {
+export default function Login() {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -22,11 +22,11 @@ export default function Create() {
     });
   }
 
-  async function onSubmit(e) {
-    e.preventDefault();
+  const handleFormSubmit = async event => {
+    event.preventDefault();
     const verifyPassword = { ...form };
 
-    await fetch("http://localhost:5001/user/login", {
+    await fetch("http://localhost:5001/user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,13 +43,13 @@ export default function Create() {
     });
 
     console.log(verifyPassword);
-    // navigate("/profile");
-  }
+    navigate("/profile");
+  };
 
   return (
     <div>
       <h3>Login</h3>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleFormSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input

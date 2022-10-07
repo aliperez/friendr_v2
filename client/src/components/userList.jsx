@@ -29,11 +29,7 @@ const User = props => (
 export default function UserList() {
   const [users, setUser] = useState([]);
 
-  ///////////////////////////////////////////////////////////
-  //                                                       //
-  //    This method fetches the users from the database.    //
-  //                                                       //
-  ///////////////////////////////////////////////////////////
+  //    This method fetches the users from the database.
   useEffect(() => {
     async function getUser() {
       const response = await fetch(`http://localhost:5001/user/`);

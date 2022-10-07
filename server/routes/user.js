@@ -60,14 +60,14 @@ userRoutes.route("/user/add").post(async (req, response) => {
   }
 });
 
-userRoutes.route("/user/login").post(async (req, res) => {
-  console.log("line 63");
+// Verify password
+userRoutes.route("/user").post(async (req, res) => {
   let db_connect = dbo.getDb();
+
   const user = db_connect
     .collection("users")
     .find(user => (user.email = req.body.email));
-  if (user == null) {
-    // console.log("we here bro");
+  if (myquery == null) {
     return res.status(404).send("no user found");
   }
   try {
