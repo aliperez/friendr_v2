@@ -22,8 +22,8 @@ export default function Login() {
     e.preventDefault();
     const verifyPassword = { ...form };
 
-    await fetch("http://localhost:5001/", {
-      method: "POST",
+    await fetch("http://localhost:5001/login", {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },

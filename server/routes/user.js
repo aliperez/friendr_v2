@@ -66,22 +66,37 @@ userRoutes.route("/user/add").post(async (req, response) => {
 //
 // Verify password by email.
 //
-userRoutes.route("/").post(function (req, res) {
-  let db_connect = dbo.getDb();
-  let myquery = { email: ObjectId(req.params.email) };
-  console.log(req.params.email);
-  db_connect.collection("users").findOne(myquery, function (err, result) {
-    if (err) throw err;
-    res.json(result);
-  });
-  if (myquery == null) {
-    return res.status(400).send("Can not find user");
+// userRoutes.route("/login").post(function (req, res) {
+//   let db_connect = dbo.getDb();
+//   let myquery = { email: ObjectId(req.params.email) };
+//   console.log(req.params.email);
+//   db_connect.collection("users").findOne(myquery, function (err, result) {
+//     if (err) throw err;
+//     res.json(result);
+//   });
+//   if (myquery == null) {
+//     return res.status(400).send("Can not find user");
+//   }
+//   try {
+//     bcrypt.compare(req.body.password, myquery.password);
+//   } catch {
+//     res.status(500).send;
+//   }
+// });
+
+userRoutes.put("/login", async (req, res) => {
+  const { email, password } = req.body;
+  const user = users.find(u => u.email === email);
+  if (!user) {
+    res.send("No email found, please try again");
+    return;
   }
-  try {
-    bcrypt.compare(req.body.password, myquery.password);
-  } catch {
-    res.status(500).send;
+  const isValid = await bcrypt.compare(password, user.password);
+  if (!isValid) {
+    res.send("wrong password");
+    return;
   }
+  res.send("ok");
 });
 
 // This section will help you update a user by id.
