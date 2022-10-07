@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
-// import Auth from "../utils/auth";
-
 export default function Login() {
   const [form, setForm] = useState({
     email: "",
@@ -10,23 +8,21 @@ export default function Login() {
   });
 
   const navigate = useNavigate();
-
-  ///////////////////////////////////////////////////////////
-  //                                                       //
-  //    These methods will update the state properties.    //
-  //                                                       //
-  ///////////////////////////////////////////////////////////
+  //
+  //
+  //    These methods will update the state properties.
+  //
   function updateForm(value) {
     return setForm(prev => {
       return { ...prev, ...value };
     });
   }
 
-  const handleFormSubmit = async event => {
-    event.preventDefault();
+  async function onSubmit(e) {
+    e.preventDefault();
     const verifyPassword = { ...form };
 
-    await fetch("http://localhost:5001/user", {
+    await fetch("http://localhost:5001/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,12 +40,12 @@ export default function Login() {
 
     console.log(verifyPassword);
     navigate("/profile");
-  };
+  }
 
   return (
     <div>
       <h3>Login</h3>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input

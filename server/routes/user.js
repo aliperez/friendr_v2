@@ -23,8 +23,10 @@ userRoutes.route("/user").get(function (req, res) {
       res.json(result);
     });
 });
-
+//
+//
 // This section will help you get a single user by id
+//
 userRoutes.route("/user/:id").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
@@ -33,9 +35,10 @@ userRoutes.route("/user/:id").get(function (req, res) {
     res.json(result);
   });
 });
-
+//
+//
 // This section will help you create a new user.
-
+//
 userRoutes.route("/user/add").post(async (req, response) => {
   try {
     const salt = await bcrypt.genSalt();
@@ -59,21 +62,24 @@ userRoutes.route("/user/add").post(async (req, response) => {
     res.status(500).send();
   }
 });
-
-// Verify password
-userRoutes.route("/user").post(async (req, res) => {
+//
+//
+// Verify password by email.
+//
+userRoutes.route("/login").get(function (req, res) {
   let db_connect = dbo.getDb();
-
-  const user = db_connect
-    .collection("users")
-    .find(user => (user.email = req.body.email));
+  let myquery = { email: ObjectId(req.params.email) };
+  db_connect.collection("users").findOne(myquery, function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
   if (myquery == null) {
-    return res.status(404).send("no user found");
+    return res.status(400).send("Can not find user");
   }
   try {
-    bcrypt.compare(req.body.password, user.password);
+    bcrypt.compare(req.body.password, myquery.password);
   } catch {
-    res.status(500).send();
+    res.status(500).send;
   }
 });
 

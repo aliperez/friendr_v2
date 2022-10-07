@@ -28,8 +28,10 @@ const User = props => (
 
 export default function UserList() {
   const [users, setUser] = useState([]);
-
+  //
+  //
   //    This method fetches the users from the database.
+  //
   useEffect(() => {
     async function getUser() {
       const response = await fetch(`http://localhost:5001/user/`);
@@ -49,11 +51,10 @@ export default function UserList() {
     return;
   }, [users.length]);
 
-  //////////////////////////////////////////
-  //                                      //
-  //    This method will delete a user    //
-  //                                      //
-  //////////////////////////////////////////
+  //
+  //
+  //    This method will delete a user
+  //
   async function deleteUser(id) {
     await fetch(`http://localhost:5001/${id}`, {
       method: "DELETE",
@@ -62,12 +63,10 @@ export default function UserList() {
     const newUsers = users.filter(el => el._id !== id);
     setUser(newUsers);
   }
-
-  ///////////////////////////////////////////////////////////
-  //                                                       //
-  //    This method will map out the users on the table    //
-  //                                                       //
-  ///////////////////////////////////////////////////////////
+  //
+  //
+  //    This method will map out the users on the table
+  //
   function userList() {
     return users.map(user => {
       return (
@@ -79,12 +78,10 @@ export default function UserList() {
       );
     });
   }
-
-  ////////////////////////////////////////////////////////////////////////////////////////
-  //                                                                                    //
-  //    This following section will display the table with the users of individuals.    //
-  //                                                                                    //
-  ////////////////////////////////////////////////////////////////////////////////////////
+  //
+  //
+  //    This following section will display the table with the users of individuals.
+  //
   return (
     <div>
       <h3>This will be the Profile Page - after you sign in </h3>

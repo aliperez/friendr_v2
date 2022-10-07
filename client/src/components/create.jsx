@@ -13,20 +13,19 @@ export default function Create() {
     about: "",
   });
   const navigate = useNavigate();
-
-  ///////////////////////////////////////////////////////////
-  //                                                       //
-  //    These methods will update the state properties.    //
-  //                                                       //
-  ///////////////////////////////////////////////////////////
+  //
+  //
+  //    These methods will update the state properties.
+  //
   function updateForm(value) {
     return setForm(prev => {
       return { ...prev, ...value };
     });
   }
-
+  //
+  //
   //    This function will handle the submission.
-
+  //
   async function onSubmit(e) {
     e.preventDefault();
     const newPerson = { ...form };
@@ -54,9 +53,10 @@ export default function Create() {
     });
     navigate("/profile");
   }
-
+  //
+  //
   //    This following section will display the form that takes the input from the user.
-
+  //
   return (
     <div>
       <h3>Create New User</h3>
