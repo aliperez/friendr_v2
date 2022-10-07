@@ -39,7 +39,7 @@ export default function Login() {
     });
 
     console.log(verifyPassword);
-    navigate("/profile");
+    // navigate("/profile");
   }
 
   return (
