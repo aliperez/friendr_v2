@@ -85,8 +85,9 @@ userRoutes.route("/user/add").post(async (req, response) => {
 // });
 
 userRoutes.put("/login", async (req, res) => {
+  let db_connect = dbo.getDb();
   const { email, password } = req.body;
-  const user = users.find(u => u.email === email);
+  const user = db_connect.find(u => u.email === email);
   if (!user) {
     res.send("No email found, please try again");
     return;
