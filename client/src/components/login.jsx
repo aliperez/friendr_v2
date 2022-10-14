@@ -20,7 +20,7 @@ export default function Login() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const verifyPassword = { ...fom };
+    const verifyPassword = { ...form };
 
     await fetch("http://localhost:5001/login", {
       method: "PUT",
