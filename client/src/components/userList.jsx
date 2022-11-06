@@ -60,7 +60,7 @@ export default function UserList() {
       method: "DELETE",
     });
 
-    const newUsers = users.filter(el => el._id !== id);
+    const newUsers = users.filter(el => el.id !== id);
     setUser(newUsers);
   }
   //
