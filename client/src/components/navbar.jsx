@@ -45,7 +45,7 @@ export default function Navbar() {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <NavLink className="nav-link" to="/create">
-                Create Profile heyyyy
+                Create Profile
               </NavLink>
             </li>
           </ul>
